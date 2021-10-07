@@ -37,7 +37,7 @@ describe("AddInput", () => {
             />
         )
         const element = screen.getByPlaceholderText(/Add a new task here.../i)
-        const buttonElement = screen.getByRole("button")
+        const buttonElement = screen.getByRole("button", { name: /Add/i })
         fireEvent.change(element, { target: { value: "Go out!" } })
         fireEvent.click(buttonElement)
         expect(element.value).toBe("")
