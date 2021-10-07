@@ -10,6 +10,18 @@ const MockFollowersList = () => {
 }
 
 describe("FollowersList", () => {
+    beforeEach(() => {
+        console.log("Running before each Test")
+    })
+    beforeAll(() => {
+        console.log("Running once before All Test")
+    })
+    afterEach(() => {
+        console.log("Running after each Test")
+    })
+    afterAll(() => {
+        console.log("Running once after All Test")
+    })
     it("FollowersList test-1", async () => {
         render(<MockFollowersList />)
         const elements = await screen.findAllByRole("heading")
@@ -31,6 +43,10 @@ describe("FollowersList", () => {
     it("FollowersList test-4", async () => {
         render(<MockFollowersList />)
         const elements = await screen.findAllByTestId(/card/i)
+        //screen.debug()
         expect(elements.length).toBe(5)
     })
+
+
+
 })
